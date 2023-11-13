@@ -25,9 +25,9 @@ import {
       return this.artistsService.findAll();
     }
   
-    @Get(':id')
-    findOne(@Param('id') id: string): Promise<Artist> {
-      return this.artistsService.findOne(id);
+    @Get(':name')
+    findOne(@Param('name') name: string): Promise<Artist> {
+      return this.artistsService.findOne(name);
     }
   
     @Post()
@@ -35,17 +35,17 @@ import {
       return this.artistsService.create(createArtistDto);
     }
   
-    @Put(':id')
+    @Put(':name')
     update(
-      @Param('id') id: string,
+      @Param('name') name: string,
       @Body() updateArtistDto: UpdateArtistDto,
     ): Promise<Artist> {
-      return this.artistsService.update(id, updateArtistDto);
+      return this.artistsService.update(name, updateArtistDto);
     }
   
-    @Delete(':id')
-    remove(@Param('id') id: string): Promise<Artist> {
-      return this.artistsService.remove(id);
+    @Delete(':name')
+    remove(@Param('name') name: string): Promise<Artist> {
+      return this.artistsService.remove(name);
     }
   }
   
